@@ -7,4 +7,5 @@ It will read the simple English Wikipedia dataset in jsonl format. The file is 2
 ```
 $ cargo run --release
 ```
-It will print out the number of encoded tokens and the elapsed time. 
+It will print out the number of encoded tokens and the elapsed time for encoding. The number of tokens should be exactly 53619552 for this dataset.
+The M2 mac mini took 1.87s to encode the dataset.
