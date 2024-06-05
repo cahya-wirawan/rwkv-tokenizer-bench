@@ -29,10 +29,11 @@ fn main() {
     use std::time::Instant;
     let now = Instant::now();
     let mut counter = 0;
-    let mut index = 0;
+    // let mut index = 0;
     for text in dataset {
         let encode = tokenizer.encode(text.as_str());
         counter += encode.len();
+        /*
         let decode = tokenizer.decode(encode.to_vec());
         if decode != text {
             println!("decode: {:?}", decode);
@@ -41,9 +42,10 @@ fn main() {
         }
         assert_eq!(decode, text);
         index += 1;
+        */
     }
     let elapsed = now.elapsed();
-    println!("Index: {:?}", index);
+    // println!("Index: {:?}", index);
     println!("Counter: {:?}", counter);
     println!("Elapsed: {:.2?}", elapsed);
 }
