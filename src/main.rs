@@ -13,34 +13,23 @@ struct Jsonline {
 
 fn main() {
     let tokenizer = tokenizer::Tokenizer::new("data/rwkv_vocab_v20230424.txt").unwrap();
-    let encode = tokenizer.encode("Hello world!");
-    println!("{:?}", encode);
-    let decode = tokenizer.decode(encode);
-    println!("{:?}", decode);
-
-    let mut dataset: Vec<String> = Vec::new();
     let file = File::open("data/wiki-en.jsonl").expect("couldn't open file");
-    //let reader = BufReader::new(file);
-    for line in BufReader::new(file).lines() {
-        let line = line.expect("couldn't get line");
-        let ds: Jsonline = serde_json::from_str(&line).unwrap();
-        dataset.push(ds.text);
-    }
     use std::time::Instant;
     let now = Instant::now();
     let mut counter = 0;
-    // let mut index = 0;
-    for text in dataset {
-        let encode = tokenizer.encode(text.as_str());
+    for line in BufReader::new(file).lines() {
+        let line = line.expect("couldn't get line");
+        let ds: Jsonline = serde_json::from_str(&line).unwrap();
+        let encode = tokenizer.encode(ds.text.as_str());
         counter += encode.len();
         /*
         let decode = tokenizer.decode(encode.to_vec());
-        if decode != text {
+        if decode != ds.text {
             println!("decode: {:?}", decode);
-            println!("text: {:?}", text);
+            println!("text: {:?}", ds.text);
             break
         }
-        assert_eq!(decode, text);
+        assert_eq!(decode, ds.text);
         index += 1;
         */
     }
