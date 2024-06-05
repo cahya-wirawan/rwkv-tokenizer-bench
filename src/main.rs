@@ -35,6 +35,6 @@ fn main() {
     }
     let elapsed = now.elapsed();
     // println!("Index: {:?}", index);
-    println!("Counter: {:?}", counter);
-    println!("Elapsed: {:.2?}", elapsed);
+    println!("Number of tokens: {:?}", counter);
+    println!("Elapsed time: {:.2?}", elapsed);
 }
