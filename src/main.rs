@@ -19,7 +19,7 @@ fn main() {
     println!("{:?}", decode);
 
     let mut dataset: Vec<String> = Vec::new();
-    let file = File::open("data/wiki-en-tiny.jsonl").expect("couldn't open file");
+    let file = File::open("data/wiki-en.jsonl").expect("couldn't open file");
     //let reader = BufReader::new(file);
     for line in BufReader::new(file).lines() {
         let line = line.expect("couldn't get line");
