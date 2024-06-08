@@ -158,7 +158,7 @@ impl Tokenizer {
     }
 
     #[allow(dead_code)]
-    pub(crate) fn decode1(&self, vec: Vec<u16>) -> String {
+    pub(crate) fn decode(&self, vec: Vec<u16>) -> String {
         let mut result: Vec<u8> = Vec::new();
         for index in vec.iter() {
             let mut current_tokens = self.tokens[*index as usize].clone();
