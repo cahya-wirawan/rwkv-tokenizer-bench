@@ -973,9 +973,9 @@ checksum = "08d43f7aa6b08d49f382cde6a7982047c3426db949b1424bc4b7ec9ae12c6ce2"
 
 [[package]]
 name = "rwkv-tokenizer"
-version = "0.5.7"
+version = "0.7.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8286b9b47c368c3a22fb746d817b15c26b2190307f4c8b4717ba58c1c013b941"
+checksum = "6f5561bc2a7ec03d2b035ca438caad202260fb023f20247e58f2d694c8fd0f58"
 dependencies = [
  "regex",
  "unescape",
