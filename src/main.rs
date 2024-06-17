@@ -35,12 +35,12 @@ fn main() {
         elapsed += now.elapsed();
         counter += encode.len();
     }
-    let bytes_counter = bytes_counter as u64;
+    let bytes_counter = bytes_counter as f32;
     println!("rwkv_tokenizer");
     println!("Number of tokens: {:?}", counter);
     println!("Number of bytes: {:?}", bytes_counter);
     println!("Elapsed time: {:.2?}", elapsed);
-    println!("Performance: {:.2?}MB/s", bytes_counter/elapsed.as_secs()/(1024*1024));
+    println!("Performance: {:.2?}MB/s", bytes_counter/elapsed.as_secs_f32()/(1024*1024) as f32);
 
     let vocabfile = "/Users/cahya/Work/MachineLearning/web-rwkv/assets/rwkv_vocab_v20230424.json";
     let tokenizer_web = load_tokenizer(vocabfile).unwrap();
@@ -57,10 +57,10 @@ fn main() {
         elapsed += now.elapsed();
         counter += encode.len();
     }
-    let bytes_counter = bytes_counter as u64;
+    let bytes_counter = bytes_counter as f32;
     println!("web-rwkv");
     println!("Number of tokens: {:?}", counter);
     println!("Number of bytes: {:?}", bytes_counter);
     println!("Elapsed time: {:.2?}", elapsed);
-    println!("Performance: {:.2?}MB/s", bytes_counter/elapsed.as_secs()/(1024*1024));
+    println!("Performance: {:.2?}MB/s", bytes_counter/elapsed.as_secs_f32()/(1024*1024) as f32);
 }
