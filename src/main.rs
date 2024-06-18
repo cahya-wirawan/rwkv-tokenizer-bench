@@ -42,7 +42,7 @@ fn main() {
     println!("- Performance: {:.2?}MB/s", bytes_counter as f32/elapsed.as_secs_f32()/(1024*1024) as f32);
     println!();
 
-    let vocabfile = "/Users/cahya/Work/MachineLearning/web-rwkv/assets/rwkv_vocab_v20230424.json";
+    let vocabfile = "data/rwkv_vocab_v20230424.json";
     let tokenizer_web = load_tokenizer(vocabfile).unwrap();
     let file = File::open("data/wiki-en.jsonl").expect("couldn't open file");
     let mut counter = 0;
